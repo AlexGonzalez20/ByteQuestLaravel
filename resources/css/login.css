@@ -36,6 +36,7 @@ body {
     text-align: center;
     padding-top: 30px;
     font-weight: bold;
+    color: whitesmoke;
 }
 
 .caja1 {
@@ -127,10 +128,21 @@ body {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-bottom: #545863 solid 3px;
 }
-.card-form button:hover{
+.card-form button:hover::before {
+  transform: scaleY(0);
+}
+.card-form button:hover {
     color: white;
     background-color: #9fe0f6;
-    transition: all 1.0s all;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.card-form a {
+    padding-left: 40px;
+    float: left;
+    inline-size: 80%;
+    color: whitesmoke;
 }
 
 .footer {
