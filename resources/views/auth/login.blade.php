@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-    <title>Login - ByteQuest</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    {{-- Esto es lo importante: --}}
+    @vite('resources/css/login.css')
+
 </head>
-
 <body>
-    <h2>Iniciar sesión</h2>
-    <form method="POST" action="/login">
-        @csrf
-        <label>Correo:</label><br>
-        <input type="email" name="correo" value="{{ old('correo') }}"><br><br>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <label for="correo">Correo:</label>
+            <input type="email" name="correo" id="correo" required>
 
-        <label>Contraseña:</label><br>
-        <input type="password" name="password"><br><br>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" required>
 
-        <button type="submit">Entrar</button>
-    </form>
-    @if ($errors->any())
-    <div>
-        <strong>{{ $errors->first() }}</strong>
+            <button type="submit">Ingresar</button>
+        </form>
     </div>
-    @endif
-    <br>
-    <a href="/register">¿No tienes cuenta? Regístrate aquí</a>
-
 </body>
-
 </html>

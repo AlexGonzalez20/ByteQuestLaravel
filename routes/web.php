@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\LeccionController;
 use App\Http\Controllers\AuthController;
+use App\Models\Usuario;
 
 // Redirigir la raíz al login
 Route::get('/', function () {
@@ -21,7 +22,8 @@ Route::post('/register', [AuthController::class, 'register']);
 
 // Dashboard protegido por middleware auth
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $usuarios = Usuario::all();
+    return view('dashboard', compact('usuarios'));
 })->middleware('auth');
 
 // Recursos protegidos por auth
