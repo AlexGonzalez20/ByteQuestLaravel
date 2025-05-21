@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-
-    {{-- Esto es lo importante: --}}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     @vite('resources/css/login.css')
 
 </head>
+
 <body>
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <label for="correo">Correo:</label>
-            <input type="email" name="correo" id="correo" required>
+    <div class="container">
+        <div class="header">
+            <header>Bienvenido a ByteQuest</header>
+        </div>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" id="password" required>
+        <div class="caja1">
+            <img src="{{ asset('img/robot-preview.png') }}" alt="ROBOT">
+        </div>
 
-            <button type="submit">Ingresar</button>
-        </form>
+        <div class="card">
+            <div class="card-form">
+                <h2>POR FAVOR INGRESA TUS DATOS</h2>
+
+                @if(session('error'))
+                <p style="color: red;">{{ session('error') }}</p>
+                @endif
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <input type="email" name="correo" placeholder="Ingresa tu correo" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <button class="button" type="submit">Ingresar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h5>Derechos reservados ByteQuest &copy; 2025</h5>
+        </div>
     </div>
 </body>
+
 </html>
