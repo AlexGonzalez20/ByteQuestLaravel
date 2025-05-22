@@ -35,5 +35,6 @@
             @endforelse
         </tbody>
     </table>
+    <a href="{{ route('app') }}">¿No tienes cuenta? ¡Registrate Ahora!</a>
 </div>
 @endsection

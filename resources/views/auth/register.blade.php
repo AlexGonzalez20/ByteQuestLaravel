@@ -11,25 +11,21 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <header>
-                <h2>Registrarse</h2>
-            </header>
-        </div>
-        <div class="content-table">
-            @if ($errors->any())
-                <div style="color:red;">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
+        <header class="header">
+            <h2>Registrarse</h2>
+        </header>
         <div class="formulario">
 
             <div class="card-form">
+                @if ($errors->any())
+                    <div style="color:red;font-size: 3px;">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form method="POST" action="/register">
                     @csrf
                     <label for="correo">Correo:</label>
