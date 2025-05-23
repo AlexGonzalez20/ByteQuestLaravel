@@ -49,6 +49,7 @@ body {
     font-weight: bold;
     color: whitesmoke;
     font-size: 35px;
+    text-shadow: #545863 1px 0 10px;
 }
 
 .caja1 {
@@ -175,6 +176,5 @@ body {
 }
 
 .footer h5 {
-    
     font-size: 1.5rem;
 }
